@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy, QLabel, QDialog
+from PyQt6.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy, QLabel, QDialog
 
 #from ui.VistaOperazioniFumetti import Ui_VistaOperazioniFumetti
 from View.VistaOperazioniFumetti import VistaOperazioniFumetti
@@ -22,7 +22,7 @@ class InterfacciaMain(QDialog):
 
     def get_generic_button(self, titolo, on_click):
         button = QPushButton(titolo)
-        button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        button.setSizePolicy(QSizePolicy.expandingDirections(), QSizePolicy.expandingDirections())
         button.clicked.connect(on_click)
         return button
     def go_cliente(self):

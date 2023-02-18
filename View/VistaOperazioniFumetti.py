@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QWidget, QDialog, QLabel
-from PyQt5 import uic
+from PyQt6.QtWidgets import QWidget, QDialog, QLabel
+from PyQt6 import uic
 
 import sys
 class VistaOperazioniFumetti(QDialog):

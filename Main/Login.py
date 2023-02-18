@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QGridLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QDialog
+from PyQt6.QtWidgets import QWidget, QGridLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QDialog
 from Main.InterfacciaMain import InterfacciaMain
 class Login(QDialog):
     def __init__(self, parent=None):

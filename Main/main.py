@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel
+from PyQt6.QtWidgets import QApplication, QWidget, QLabel
 from Main.Login import Login
 if __name__ == '__main__':
     app = QApplication(sys.argv)
