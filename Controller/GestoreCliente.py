@@ -10,7 +10,7 @@ class GestoreCliente(Cliente):
 
     table = [
         """Cliente( 
-        idCliente INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        idCliente INTEGER NOT NULL PRIMARY KEY,
         nome char[20] not null,
         cognome char[20] not null,
         dataNascita date not null,
@@ -30,10 +30,14 @@ class GestoreCliente(Cliente):
             self.cur = self.dbb.cursor()
 
     def inserisci_Cliente(self,idCliente,nome,cognome,dataNascita,indirizzo,telefono,email):
-        with self.dbb.cursor() as cursor:
-            query = """INSERT INTO Cliente(idCliente,nome,cognome,dataNascita,indirizzo,telefono,email)
-                        VALUES (%s,%s,%s,%s,%s,%s,%s)"""
-            cursor.execute(query,(idCliente,nome,cognome,dataNascita,indirizzo,telefono,email))
-            self.dbb.commit()
+        try:
+            with self.dbb.cursor() as cursor:
+                query = """INSERT INTO Cliente(idCliente,nome,cognome,dataNascita,indirizzo,telefono,email)
+                            VALUES (%s,%s,%s,%s,%s,%s,%s)"""
+                cursor.execute(query,(idCliente,nome,cognome,dataNascita,indirizzo,telefono,email))
+                self.dbb.commit()
+        except Exception as m:
+            print(type(m))
+            print(m)
 
-    def ge
+
