@@ -1,7 +1,8 @@
 from PyQt6 import uic
-from PyQt6.QtWidgets import QWidget, QMainWindow
+from PyQt6.QtWidgets import QMainWindow
 
 from ui.MainCliente import MainCliente
+from ui.MainMagazzino import MainMagazzino
 
 
 class Main(QMainWindow):
@@ -21,7 +22,10 @@ class Main(QMainWindow):
         self.close()
 
     def go_magazzino(self):
-        pass
+        self.main_magazzino = MainMagazzino()
+        self.main_magazzino.show()
+        self.close()
+
     def go_backup(self):
         pass
     def go_statistiche(self):
