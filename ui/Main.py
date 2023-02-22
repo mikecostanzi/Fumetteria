@@ -1,7 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
-from ui.MainCliente import MainCliente
+
 from ui.MainMagazzino import MainMagazzino
 
 
