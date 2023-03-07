@@ -53,7 +53,7 @@ class GestoreFumetti():
                 """
                 data = barcode
                 cursor.execute(query,data)
-                self.fumetto = (cursor.fetchall())
+                self.fumetto = cursor.fetchall()
                 print(self.fumetto)
                 if self.fumetto:
                     return self.fumetto

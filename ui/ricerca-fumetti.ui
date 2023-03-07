@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
-    <height>454</height>
+    <width>704</width>
+    <height>334</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Ricerca del Fumetto</string>
   </property>
   <widget class="QLineEdit" name="line_barra">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>371</width>
+     <x>280</x>
+     <y>20</y>
+     <width>301</width>
      <height>23</height>
     </rect>
    </property>
@@ -26,8 +26,8 @@
   <widget class="QPushButton" name="btn_ricerca">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>60</y>
+     <x>590</x>
+     <y>20</y>
      <width>101</width>
      <height>24</height>
     </rect>
@@ -41,7 +41,7 @@
     <rect>
      <x>10</x>
      <y>20</y>
-     <width>501</width>
+     <width>261</width>
      <height>16</height>
     </rect>
    </property>
@@ -53,17 +53,17 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
-     <width>371</width>
-     <height>331</height>
+     <y>60</y>
+     <width>571</width>
+     <height>251</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_apri">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>100</y>
+     <x>590</x>
+     <y>60</y>
      <width>101</width>
      <height>41</height>
     </rect>

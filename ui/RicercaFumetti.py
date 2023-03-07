@@ -16,11 +16,11 @@ class RicercaFumetti(QWidget):
         try:
             ricerca_fumetti = GestoreFumetti()
             fumetto = ricerca_fumetti.ricerca(self.line_barra.text())
-            self.lista = [fumetto]
+
             lista_model = QStandardItemModel(self.lista_fumetti)
-            for fumetto in self.lista:
+            for elemento in fumetto:
                 item = QStandardItem()
-                riga = f"{fumetto.barcode}"
+                riga = f"Codice:{elemento[0]} - Categoria: {elemento[1]} - Editore: {elemento[3]} - Qtità: {elemento[7]}"
                 item.setText(riga)
                 item.setEditable(False)
                 font = item.font()
