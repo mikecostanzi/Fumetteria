@@ -4,23 +4,24 @@ import os.path
 import pymysql
 
 class GestoreFumetti():
-    table = [
-        """
+    table =  """
         Fumetto(barcode INTEGER NOT NULL PRIMARY KEY,
-        categoria varchar[20],
-        distributore varchar[20],
-        editore varchar[20],
+        categoria varchar(20),
+        distributore varchar(20),
+        editore varchar(20),
         collana int,
         sottocollana int,
         prezzo decimal(4,2) not null,
         quantita int)
         """
-    ]
+
     def __init__(self):
         super(GestoreFumetti).__init__()
+        self.lista = []
         try:
-            db = pymysql.connect(connection())
-            self.cur = db.cursor()
+
+            self.db = connection()
+            self.cur = self.db.cursor()
             self.cur.execute(f"CREATE TABLE IF NOT EXISTS {self.table}")
 
         except Exception as m:
@@ -41,4 +42,22 @@ class GestoreFumetti():
 
         except Exception as m:
             print("Query fumetto non andato a buon fine")
+            print(m)
+    def ricerca(self,barcode):
+        try:
+            with self.db.cursor() as cursor:
+                query = """
+                    select * 
+                    from Fumetto as f
+                    where f.barcode = %s
+                """
+                data = barcode
+                cursor.execute(query,data)
+                self.fumetto = (cursor.fetchall())
+                print(self.fumetto)
+                if self.fumetto:
+                    return self.fumetto
+
+        except Exception as m:
+            print("Query ricerca non andato a buon fine")
             print(m)

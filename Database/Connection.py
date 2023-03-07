@@ -1,10 +1,5 @@
 import pymysql
-'''''''''
-class Connection:
-    def __init__(self):
-        super(Connection).__init__()
-        self.connection()
-'''
+
 def connection():
     try:
         conn = pymysql.connect(

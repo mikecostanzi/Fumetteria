@@ -1,7 +1,9 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QWidget
 
+from Controller.GestoreFumetti import GestoreFumetti
 from ui.InserimentoFumetto import InserimentoFumetto
+from ui.RicercaFumetti import RicercaFumetti
 
 
 class MainMagazzino(QWidget):
@@ -18,4 +20,5 @@ class MainMagazzino(QWidget):
         self.inserimento_fumetto.show()
 
     def go_ricerca(self):
-        pass
+        self.ricerca = RicercaFumetti()
+        self.ricerca.show()
