@@ -44,6 +44,7 @@ class GestoreFumetti():
             print("Query fumetto non andato a buon fine")
             print(m)
     def ricerca(self,barcode):
+        print('---Inizio ricerca su database---')
         try:
             with self.db.cursor() as cursor:
                 query = """
