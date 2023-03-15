@@ -1,6 +1,6 @@
 from PyQt6 import uic
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
-from PyQt6.QtWidgets import QWidget, QListView
+from PyQt6.QtWidgets import QWidget, QListView, QMessageBox
 
 from Controller.GestoreFumetti import GestoreFumetti
 from Model.Fumetto import Fumetto
@@ -24,7 +24,7 @@ class RicercaFumetti(QWidget):
             lista_model = QStandardItemModel(self.lista_fumetti)
             for elemento in fumetto:
                 item = QStandardItem()
-                riga = f"Codice:{elemento[0]} - Categoria: {elemento[1]} - Editore: {elemento[3]} - Qtità: {elemento[7]}"
+                riga = f"Codice:{elemento[0]} - Titolo: {elemento[1]} Categoria: {elemento[2]} - Editore: {elemento[4]} - Qtità: {elemento[8]}"
                 print(riga)
                 item.setText(riga)
                 item.setEditable(False)
@@ -34,11 +34,9 @@ class RicercaFumetti(QWidget):
                 lista_model.appendRow(item)
             self.lista_fumetti.setModel(lista_model)
             print(self.lista)
-
-
-
         except:
-            print("ricerca di mockup non andato a buon fune")
+            QMessageBox.critical(self,'Errore','Il fumetto non esiste')
+            print("Fumetto non esistente")
     def apri_fumetto(self):
         print("--- Inizio metodo apri_fumetto ---")
         try:
@@ -51,12 +49,13 @@ class RicercaFumetti(QWidget):
             for dato in fumetto_ricercato:
                 print(dato[i])
                 i += 1
-            f = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7])
+            f = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7],dato[8])
             print(f.get_barcode())
             self.go_vista_fumetto = VistaFumetto(fumetto_ricercato)
 
             self.go_vista_fumetto.show()
+            print('--- Fiine metodo apri fumetto ---')
 
         except Exception as m:
-            print("errore nel try")
+            print("Errore nel try di apri fumetto")
             print(m)

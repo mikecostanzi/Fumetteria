@@ -1,5 +1,6 @@
 class Fumetto:
-    def __init__(self,barcode,categoria,distributore,editore,collana,sottocollana,prezzo,quantita):
+    def __init__(self,barcode,titolo,categoria,distributore,editore,collana,sottocollana,prezzo,quantita):
+        self.titolo = titolo
         self.barcode = barcode
         self.categoria = categoria
         self.distributore = distributore
@@ -10,6 +11,8 @@ class Fumetto:
         self.quantita = quantita
     def get_barcode(self):
         return self.barcode
+    def get_titolo(self):
+        return self.titolo
     def get_categoria(self):
         return self.categoria
     def get_distributore(self):

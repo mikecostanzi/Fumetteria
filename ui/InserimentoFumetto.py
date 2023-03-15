@@ -14,6 +14,7 @@ class InserimentoFumetto(QWidget):
 
     def inserimento(self):
         barcode = int(self.line_barcode.text())
+        titolo = self.line_titolo.text()
         categoria = self.line_categoria.text()
         distributore = self.line_distributore.text()
         editore = self.line_editore.text()
@@ -27,7 +28,7 @@ class InserimentoFumetto(QWidget):
         if (not barcode) or (not prezzo) or (not quantita):
             QMessageBox.critical(self,'Errore', 'Inserisci i dati necessari')
         else:
-            fumetto.inserisci_fumetto(barcode,categoria,distributore,editore,collana,sottocollana,prezzo,quantita)
+            fumetto.inserisci_fumetto(barcode,titolo,categoria,distributore,editore,collana,sottocollana,prezzo,quantita)
             QMessageBox.critical(self,'Successo!','Inserimento corretto')
             self.close()
 

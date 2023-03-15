@@ -6,6 +6,7 @@ import pymysql
 class GestoreFumetti():
     table =  """
         Fumetto(barcode INTEGER NOT NULL PRIMARY KEY,
+        titolo varchar(40),
         categoria varchar(20),
         distributore varchar(20),
         editore varchar(20),
@@ -28,18 +29,17 @@ class GestoreFumetti():
             print("Database non connesso")
             print(m)
 
-    def inserisci_fumetto(self,barcode,categoria,distributore,editore,collana,sottocollana,prezzo,quantita):
+    def inserisci_fumetto(self,barcode,titolo,categoria,distributore,editore,collana,sottocollana,prezzo,quantita):
         try:
             with self.db.cursor() as cursor:
 
                 query = """
-                    INSERT INTO Fumetto(barcode,categoria,distributore,editore,collana,sottocollana,prezzo,quantita)
-                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
+                    INSERT INTO Fumetto(barcode,titolo,categoria,distributore,editore,collana,sottocollana,prezzo,quantita)
+                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
                 """
-                data = (barcode,categoria,distributore,editore,collana,sottocollana,prezzo,quantita)
+                data = (barcode,titolo,categoria,distributore,editore,collana,sottocollana,prezzo,quantita)
                 cursor.execute(query,data)
                 self.db.commit()
-
         except Exception as m:
             print("Query fumetto non andato a buon fine")
             print(m)
@@ -62,3 +62,21 @@ class GestoreFumetti():
         except Exception as m:
             print("Query ricerca non andato a buon fine")
             print(m)
+
+    def elimina_fumetto(self,barcode):
+        print('--- Inizio eliminazione su database ---')
+        try:
+            with self.db.cursor() as cursor:
+                query= '''
+                        delete 
+                        from Fumetto as t
+                        where t.barcode = %s
+                '''
+                data = barcode
+                cursor.execute(query,data)
+                self.db.commit()
+                print('--- Fine eliminazione su database ---')
+        except Exception as m:
+            print("Query ricerca non andato a buon fine")
+            print(m)
+
