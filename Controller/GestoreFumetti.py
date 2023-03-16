@@ -80,3 +80,20 @@ class GestoreFumetti():
             print("Query ricerca non andato a buon fine")
             print(m)
 
+    def modifica_quantita(self,barcode,quantita):
+        print('--- Inizio modifica quantità ---')
+        try:
+            with self.db.cursor() as cursor:
+                query = '''
+                        update Fumetto
+                        set quantita = %s
+                        where barcode = %s
+                '''
+                data = (quantita,barcode)
+                cursor.execute(query,(data))
+                self.db.commit()
+            print('Fumetto modificato')
+        except pymysql.err.ProgrammingError as m:
+            print('Query modifica quantita non andato a buon fine')
+            print(m)
+            print(type(m))

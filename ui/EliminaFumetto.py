@@ -10,7 +10,8 @@ class EliminaFumetto(QWidget):
         uic.loadUi('elimina-fumetto.ui',self)
         self.barcode = barcode
         self.btn_conferma.clicked.connect(self.elimina)
-    def elimina(self,barcode):
+        self.btn_annulla.clicked.connect(self.close)
+    def elimina(self):
         fumetto_eliminare = GestoreFumetti()
         fumetto_eliminare.elimina_fumetto(self.barcode)
         self.close()

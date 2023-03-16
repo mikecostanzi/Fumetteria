@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import QWidget, QLabel
 from Controller.GestoreFumetti import GestoreFumetti
 from Model.Fumetto import Fumetto
 from ui.EliminaFumetto import EliminaFumetto
+from ui.ModificaFumetto import ModificaFumetto
 
 
 class VistaFumetto(QWidget):
@@ -15,8 +16,8 @@ class VistaFumetto(QWidget):
 
         for dato in fumetto:
             f = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7],dato[8])
-            self.f2 = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7],dato[8])
-
+            self.fumetto_da_eliminare = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7],dato[8])
+            self.fumetto_da_modificare = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7],dato[8])
 
         self.l_titolo.setText(f'Titolo: {f.get_titolo()}')
         self.l_categoria.setText(f'Categoria: {f.get_categoria()}')
@@ -27,13 +28,19 @@ class VistaFumetto(QWidget):
         self.l_prezzo.setText(f'Prezzo: {f.get_prezzo()}')
         self.l_quantita.setText(f'Quantità: {f.get_quantita()}')
         self.setWindowTitle(f'Fumetto: {f.get_barcode()}')
+        self.btn_modifica.clicked.connect(self.go_modifica)
         self.btn_elimina.clicked.connect(self.go_eliminazione)
 
 
 
+
     def go_eliminazione(self):
-        self.get_eliminazione = EliminaFumetto(self.f2.get_barcode())
+        self.get_eliminazione = EliminaFumetto(self.fumetto_da_eliminare.get_barcode())
         self.get_eliminazione.show()
         self.close()
 
+    def go_modifica(self):
+        self.get_modifica = ModificaFumetto(self.fumetto_da_modificare.get_barcode())
+        self.get_modifica.show()
+        self.close()
 
