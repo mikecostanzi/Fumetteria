@@ -6,8 +6,8 @@ def connection():
                     host="localhost",
                     port=3306,
                     user="root",
-                    password="NicolA380!",
-                    database="GestioneFumetteria"
+                    password="admin",
+                    database="gestionefumetteria"
             )
         print('Database is Connected!')
         return conn

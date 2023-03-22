@@ -7,7 +7,7 @@ from ui.InserimentoTessera import InserimentoTessera
 class MainTessera(QWidget):
 
     def __init__(self):
-        super(MainTessera, self).__init()
+        super(MainTessera, self).__init__()
         uic.loadUi('MainTessera.ui', self)
         self.btn_inserisci.clicked.connect(self.go_inserisci)
         self.btn_ricerca.clicked.connect(self.go_ricerca)

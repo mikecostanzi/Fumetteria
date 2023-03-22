@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/GestioneFumetteria</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="gestionefumetteria@localhost" uuid="dfddf047-1fb4-4209-809a-336e0f04d12d">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/gestionefumetteria</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
