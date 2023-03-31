@@ -6,7 +6,7 @@ from Controller.GestoreTessere import GestoreTessere
 class EliminaTessera(QWidget):
     def __init__(self, codice):
         super(EliminaTessera, self).__init__()
-        uic.loadUi('eliminaTessera.ui', self)
+        uic.loadUi('../ui/eliminaTessera.ui', self)
         self.codice = codice
         self.btn_conferma.clicked.connect(self.elimina)
         self.btn_annulla.clicked.connect(self.close)

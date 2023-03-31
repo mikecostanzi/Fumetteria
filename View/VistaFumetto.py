@@ -1,10 +1,9 @@
 from PyQt6 import uic
-from PyQt6.QtWidgets import QWidget, QLabel
+from PyQt6.QtWidgets import QWidget
 
-from Controller.GestoreFumetti import GestoreFumetti
 from Model.Fumetto import Fumetto
-from ui.EliminaFumetto import EliminaFumetto
-from ui.ModificaFumetto import ModificaFumetto
+from View.EliminaFumetto import EliminaFumetto
+from View.ModificaFumetto import ModificaFumetto
 
 
 class VistaFumetto(QWidget):
@@ -12,7 +11,7 @@ class VistaFumetto(QWidget):
         super(VistaFumetto,self).__init__()
         print('--- Inizio costruttore VistaFumetto ---')
         print(fumetto)
-        uic.loadUi("vista-fumetto.ui",self)
+        uic.loadUi("../ui/vista-fumetto.ui",self)
 
         for dato in fumetto:
             f = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7],dato[8])

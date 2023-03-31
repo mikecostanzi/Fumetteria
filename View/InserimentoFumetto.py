@@ -7,7 +7,7 @@ from Controller.GestoreFumetti import GestoreFumetti
 class InserimentoFumetto(QWidget):
     def __init__(self):
         super(InserimentoFumetto,self).__init__()
-        uic.loadUi('inserimento-fumetto.ui',self)
+        uic.loadUi('../ui/inserimento-fumetto.ui',self)
         self.btn_inserisci.clicked.connect(self.inserimento)
 
         self.show()

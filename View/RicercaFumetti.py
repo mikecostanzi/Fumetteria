@@ -1,16 +1,16 @@
 from PyQt6 import uic
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
-from PyQt6.QtWidgets import QWidget, QListView, QMessageBox
+from PyQt6.QtWidgets import QWidget, QMessageBox
 
 from Controller.GestoreFumetti import GestoreFumetti
 from Model.Fumetto import Fumetto
-from ui.VistaFumetto import VistaFumetto
+from View.VistaFumetto import VistaFumetto
 
 
 class RicercaFumetti(QWidget):
     def __init__(self):
         super(RicercaFumetti,self).__init__()
-        uic.loadUi('ricerca-fumetti.ui',self)
+        uic.loadUi('../ui/ricerca-fumetti.ui',self)
         self.lista = []
         self.btn_ricerca.clicked.connect(self.inserimento_codice)
         self.btn_apri.clicked.connect(self.apri_fumetto)

@@ -1,21 +1,24 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
-from ui.MainTessera import MainTessera
-from ui.MainMagazzino import MainMagazzino
+from View.MainAcquisto import MainAcquisto
+from View.MainTessera import MainTessera
+from View.MainMagazzino import MainMagazzino
 
 
 class Main(QMainWindow):
     def __init__(self):
         super(Main, self).__init__()
-        uic.loadUi("inizio.ui", self)
+        uic.loadUi("../ui/inizio.ui", self)
         self.btn_acquisto.clicked.connect(self.go_acquisto)
         self.btn_cliente.clicked.connect(self.go_tessera)
         self.btn_magazzino.clicked.connect(self.go_magazzino)
 
         self.show()
     def go_acquisto(self):
-        pass
+        self.main_acquisto = MainAcquisto()
+        self.main_acquisto.show()
+
     def go_tessera(self):
         self.main_tessera = MainTessera()
         self.main_tessera.show()

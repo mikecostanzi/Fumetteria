@@ -1,16 +1,15 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QWidget
 
-from Controller.GestoreFumetti import GestoreFumetti
-from ui.InserimentoFumetto import InserimentoFumetto
-from ui.RicercaFumetti import RicercaFumetti
+from View.InserimentoFumetto import InserimentoFumetto
+from View.RicercaFumetti import RicercaFumetti
 
 
 class MainMagazzino(QWidget):
     
     def __init__(self):
         super(MainMagazzino,self).__init__()
-        uic.loadUi('main-magazzino.ui',self)
+        uic.loadUi('../ui/main-magazzino.ui',self)
         self.btn_inserisci.clicked.connect(self.go_inserisci)
         self.btn_ricerca.clicked.connect(self.go_ricerca)
 

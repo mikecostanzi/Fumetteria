@@ -6,7 +6,7 @@ from Controller.GestoreTessere import GestoreTessere
 class InserimentoTessera(QWidget):
     def __init__(self):
         super(InserimentoTessera, self).__init__()
-        uic.loadUi('InserimentoTessera.ui', self)
+        uic.loadUi('../ui/InserimentoTessera.ui', self)
         self.btn_inserisci.clicked.connect(self.inserimento)
         self.show()
 

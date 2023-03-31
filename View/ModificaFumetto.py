@@ -9,7 +9,7 @@ class ModificaFumetto(QWidget):
     def __init__(self,barcode):
         super(ModificaFumetto,self).__init__()
         self.barcode = barcode
-        uic.loadUi('modifica-fumetto.ui',self)
+        uic.loadUi('../ui/modifica-fumetto.ui',self)
         self.btn_quantita.clicked.connect(self.conferma_quantita)
 
     def conferma_quantita(self):

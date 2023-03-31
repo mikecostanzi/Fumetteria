@@ -2,15 +2,15 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QWidget
 
 from Model.Tessera import Tessera
-from ui.EliminaTessera import EliminaTessera
-from ui.ModificaTessera import ModificaTessera
+from View.EliminaTessera import EliminaTessera
+from View.ModificaTessera import ModificaTessera
 
 class VistaTessera(QWidget):
     def __init__(self, tessera):
         super(VistaTessera, self).__init__()
         print('--- Inizio costruttore VistaTessera ---')
         print(tessera)
-        uic.loadUi("vistaTessera.ui", self)
+        uic.loadUi("../ui/vistaTessera.ui", self)
 
         for dato in tessera:
             t = Tessera(dato[0], dato[1], dato[2], dato[3], dato[4])

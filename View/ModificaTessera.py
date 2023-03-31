@@ -8,7 +8,7 @@ class ModificaTessera(QWidget):
     def __init__(self, codice):
         super(ModificaTessera, self).__init__()
         self.codice = codice
-        uic.loadUi('modificaTessera.ui', self)
+        uic.loadUi('../ui/modificaTessera.ui', self)
         self.btn_conferma.clicked.connect(self.confermaPunti)
 
     def confermaPunti(self):

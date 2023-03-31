@@ -7,7 +7,7 @@ def connection():
                     port=3306,
                     user="root",
                     password="admin",
-                    database="gestionefumetteria"
+                    database="GestioneFumetteria"
             )
         print('Database is Connected!')
         return conn
