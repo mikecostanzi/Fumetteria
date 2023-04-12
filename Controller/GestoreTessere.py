@@ -5,10 +5,9 @@ from Database.Connection import connection
 
 class GestoreTessere():
     table = """
-        Tessera(codice INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        nome varchar(40),
-        cognome varchar(40),
-        dataNascita date, 
+        Tessera(
+        codice INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        data_inizio date, 
         punti int)
     """
 
@@ -19,19 +18,18 @@ class GestoreTessere():
             self.db = connection()
             self.cur = self.db.cursor()
             self.cur.execute(f"CREATE TABLE IF NOT EXISTS {self.table}")
-
         except Exception as m:
-            print("Database non connesso")
-            print(m)
+            print("Database non connesso, " + m)
 
-    def inserisciTessera(self, nome, cognome, dataNascita, punti):
+
+    def inserisciTessera(self,codice, data_inizio, punti):
         try:
             with self.db.cursor() as cursor:
                 query = """
-                    INSERT INTO Tessera(nome, cognome, dataNascita, punti)
+                    INSERT INTO Tessera(codice,data_inizio, punti)
                     values (%s, %s, %s, %s)
                 """
-                data = (nome, cognome, dataNascita, punti)
+                data = (codice, data_inizio, punti)
                 cursor.execute(query, data)
                 self.db.commit()
         except Exception as m:

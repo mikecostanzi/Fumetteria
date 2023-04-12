@@ -1,10 +1,8 @@
 class Tessera:
 
-    def __init__(self, codice, nome, cognome, dataNascita, punti):
+    def __init__(self, codice,data_inizio, punti):
         self.codice = codice
-        self.nome = nome
-        self.cognome = cognome
-        self.dataNascita = dataNascita
+        self.data_inizio = data_inizio
         self.punti = punti
 
     def getCodice(self):

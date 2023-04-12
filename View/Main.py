@@ -2,6 +2,7 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
 from View.MainAcquisto import MainAcquisto
+from View.MainCliente import MainCliente
 from View.MainTessera import MainTessera
 from View.MainMagazzino import MainMagazzino
 
@@ -20,8 +21,8 @@ class Main(QMainWindow):
         self.main_acquisto.show()
 
     def go_tessera(self):
-        self.main_tessera = MainTessera()
-        self.main_tessera.show()
+        self.main_cliente=MainCliente()
+        self.main_cliente.show()
 
     def go_magazzino(self):
         self.main_magazzino = MainMagazzino()
