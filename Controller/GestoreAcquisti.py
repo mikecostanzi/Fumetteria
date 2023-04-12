@@ -1,7 +1,10 @@
 from Database.Connection import connection
 class GestoreAcquisti:
     table = '''
-        Acquisto()
+        Acquisto(
+            codice INTEGER NOT NULL PRIMARY KEY,
+            
+        )
     '''
     def __init__(self):
         super(GestoreAcquisti).__init__()
