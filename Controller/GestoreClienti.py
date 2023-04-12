@@ -28,6 +28,9 @@ class GestoreClienti():
     def inserisci_cliente(self,id,nome,cognome,indirizzo,telefono,email,codice):
         try:
             with self.db.cursor() as cursor:
+                if codice == '':
+                    codice = None
+
                 query = '''
                     INSERT INTO Cliente(id,nome,cognome,indirizzo,telefono,email,codice)
                     VALUES (%s,%s,%s,%s,%s,%s,%s)
