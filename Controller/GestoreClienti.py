@@ -40,3 +40,94 @@ class GestoreClienti():
                 self.db.commit()
         except Exception as m:
             print('Query non andata a buon fine ' + m)
+    def ricerca_cliente(self,id):
+        try:
+            with self.db.cursor() as cursor:
+                query = '''
+                    select *
+                    from Cliente as c
+                    where c.id = %s
+                '''
+                cursor.execute(query,id)
+                self.cliente = cursor.fetchall()
+                print(self.cliente)
+                if self.cliente:
+                    return self.cliente
+        except Exception as m:
+            print('Query non andata a buon fine' + m)
+
+    def elimina_cliente(self,id):
+        with self.db.cursor() as cursor:
+            query = '''
+                delete from Cliente as c
+                where c.id = %s
+            '''
+            cursor.execute(query,id)
+            self.db.commit()
+    def modifica_codice(self,id,codice):
+        with self.db.cursor() as cursor:
+            query = '''
+                update Cliente 
+                set codice = %s
+                where id = %s
+            '''
+            data = (codice,id)
+            cursor.execute(query,data)
+            self.db.commit()
+
+    def modifica_nome(self, id, nome):
+        with self.db.cursor() as cursor:
+            query = '''
+                update Cliente 
+                set nome = %s
+                where id = %s
+            '''
+            data = (nome, id)
+            cursor.execute(query, data)
+            self.db.commit()
+
+    def modifica_cognome(self, id, cognome):
+        with self.db.cursor() as cursor:
+            query = '''
+                update Cliente 
+                set cognome = %s
+                where id = %s
+            '''
+            data = (cognome, id)
+            cursor.execute(query, data)
+            self.db.commit()
+
+    def modifica_indirizzo(self, id, indirizzo):
+        with self.db.cursor() as cursor:
+            query = '''
+                update Cliente 
+                set indirizzo = %s
+                where id = %s
+            '''
+            data = (indirizzo, id)
+            cursor.execute(query, data)
+            self.db.commit()
+
+    def modifica_telefono(self, id, telefono):
+        with self.db.cursor() as cursor:
+            query = '''
+                update Cliente 
+                set telefono = %s
+                where id = %s
+            '''
+            data = (telefono, id)
+            cursor.execute(query, data)
+            self.db.commit()
+
+    def modifica_email(self, id, email):
+        with self.db.cursor() as cursor:
+            query = '''
+                update Cliente 
+                set email = %s
+                where id = %s
+            '''
+            data = (email, id)
+            cursor.execute(query, data)
+            self.db.commit()
+
+

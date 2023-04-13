@@ -14,6 +14,6 @@ class ModificaFumetto(QWidget):
 
     def conferma_quantita(self):
         quantita = int(self.line_quantita.text())
-        modifica = GestoreFumetti()
-        modifica.modifica_quantita(self.barcode,quantita)
+        gestore = GestoreFumetti()
+        gestore.modifica_quantita(self.barcode,quantita)
         print('Premuto conferma')
