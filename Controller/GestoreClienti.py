@@ -55,7 +55,21 @@ class GestoreClienti():
                     return self.cliente
         except Exception as m:
             print('Query non andata a buon fine' + m)
-
+    def ricerca_cliente_codice_null(self,id):
+        try:
+            with self.db.cursor() as cursor:
+                query = '''
+                    select *
+                    from Cliente as c
+                    where c.nome = %s and c.codice is NULL
+                '''
+                cursor.execute(query,id)
+                self.cliente = cursor.fetchall()
+                print(self.cliente)
+                if self.cliente:
+                    return self.cliente
+        except Exception as m:
+            print('Query non andata a buon fine' + m)
     def elimina_cliente(self,id):
         with self.db.cursor() as cursor:
             query = '''

@@ -5,10 +5,11 @@ from Database.Connection import connection
 
 class GestoreTessere():
     table = """
-        Tessera(
-        codice INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        data_inizio date, 
-        punti int)
+       Tessera(
+        codice integer not null primary key ,
+        data_inizio date,
+        punti integer
+        )
     """
 
     def __init__(self):
@@ -27,7 +28,7 @@ class GestoreTessere():
             with self.db.cursor() as cursor:
                 query = """
                     INSERT INTO Tessera(codice,data_inizio, punti)
-                    values (%s, %s, %s, %s)
+                    values (%s, %s, %s)
                 """
                 data = (codice, data_inizio, punti)
                 cursor.execute(query, data)

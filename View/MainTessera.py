@@ -1,6 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QWidget
 
+from View.RicercaClienteTessera import RicercaClienteTessera
 from View.RicercaTessera import RicercaTessera
 from View.InserimentoTessera import InserimentoTessera
 
@@ -14,7 +15,7 @@ class MainTessera(QWidget):
         self.show()
 
     def go_inserisci(self):
-        self.inserimento_tessera = InserimentoTessera()
+        self.inserimento_tessera = RicercaClienteTessera()
         self.inserimento_tessera.show()
 
     def go_ricerca(self):

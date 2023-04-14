@@ -16,7 +16,7 @@ class VistaCliente(QWidget):
         self.l_nome.setText(f'Nome: {self.c.get_nome()}')
         self.l_cognome.setText(f'Cognome: {self.c.get_cognome()}')
         self.l_indirizzo.setText(f'Indirizzo: {self.c.get_indirizzo()}')
-        self.l_telefono.setText(f'Telefono: {self.c.get_nome()}')
+        self.l_telefono.setText(f'Telefono: {self.c.get_telefono()}')
         self.l_email.setText(f'Email: {self.c.get_email()}')
         self.l_codice.setText(f'Codice della tessera: {self.c.get_codice()}')
 
