@@ -13,16 +13,14 @@ class VistaTessera(QWidget):
         uic.loadUi("../ui/vistaTessera.ui", self)
 
         for dato in tessera:
-            t = Tessera(dato[0], dato[1], dato[2], dato[3], dato[4])
-            self.tessera_da_eliminare = Tessera(dato[0], dato[1], dato[2], dato[3], dato[4])
-            self.tessera_da_modificare = Tessera(dato[0], dato[1], dato[2], dato[3], dato[4])
+            t = Tessera(dato[0], dato[1], dato[2])
+            self.tessera_da_eliminare = Tessera(dato[0], dato[1], dato[2])
+            self.tessera_da_modificare = Tessera(dato[0], dato[1], dato[2])
 
         self.labelCodice.setText(f'Codice: {t.getCodice()}')
-        self.labelNome.setText(f'Nome: {t.getNome()}')
-        self.labelCognome.setText(f'Cognome: {t.getCognome()}')
-        self.labelData.setText(f'DataNascita: {t.getDataNascita()}')
+        self.labelData.setText(f'DataNascita: {t.getDataInizio()}')
         self.labelPunti.setText(f'Punti: {t.getPunti()}')
-        self.btn_modiifca.clicked.connect(self.goModifica)
+        self.btn_modifica.clicked.connect(self.goModifica)
         self.btn_elimina.clicked.connect(self.goElimina)
 
     def goElimina(self):

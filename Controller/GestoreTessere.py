@@ -40,16 +40,14 @@ class GestoreTessere():
     def ricercaTessera(self, codice):
         print('---Inizio ricerca su database---')
         try:
-            with self.db.cursor as cursor:
+            with self.db.cursor() as cursor:
                 query = """
                     select *
                     from Tessera as t
                     where t.codice = %s
                 """
-                data = codice
-                cursor.execute(query, data)
+                cursor.execute(query, codice)
                 self.tessera = cursor.fetchall()
-                print(self.tessera)
                 if self.tessera:
                     return self.tessera
 

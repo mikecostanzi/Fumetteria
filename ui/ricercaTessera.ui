@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>RicercaTessera</class>
+ <widget class="QWidget" name="RicercaTessera">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>703</width>
-    <height>342</height>
+    <height>315</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Ricerca Tessera</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>241</width>
+     <width>691</width>
      <height>21</height>
     </rect>
    </property>
@@ -26,12 +26,12 @@
     <string>Inserisci il codice per la ricerca della tessera:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="line_barra">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>320</x>
      <y>10</y>
-     <width>321</width>
+     <width>261</width>
      <height>20</height>
     </rect>
    </property>

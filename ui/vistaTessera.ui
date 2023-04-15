@@ -6,98 +6,72 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>393</height>
+    <width>418</width>
+    <height>221</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Tessera</string>
   </property>
   <widget class="QLabel" name="labelCodice">
    <property name="geometry">
     <rect>
-     <x>25</x>
-     <y>25</y>
+     <x>20</x>
+     <y>30</y>
      <width>450</width>
      <height>25</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelNome">
-   <property name="geometry">
-    <rect>
-     <x>25</x>
-     <y>75</y>
-     <width>450</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelCognome">
-   <property name="geometry">
-    <rect>
-     <x>25</x>
-     <y>125</y>
-     <width>450</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
+    <string>Codice</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelData">
    <property name="geometry">
     <rect>
-     <x>25</x>
-     <y>175</y>
+     <x>20</x>
+     <y>60</y>
      <width>450</width>
      <height>25</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Data Iscrizione</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelPunti">
    <property name="geometry">
     <rect>
-     <x>25</x>
-     <y>225</y>
+     <x>20</x>
+     <y>90</y>
      <width>450</width>
      <height>25</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Punti</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_modifica">
    <property name="geometry">
     <rect>
-     <x>25</x>
-     <y>275</y>
-     <width>200</width>
-     <height>100</height>
+     <x>30</x>
+     <y>130</y>
+     <width>161</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
     <string>Modifica</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="btn_elimina">
    <property name="geometry">
     <rect>
-     <x>275</x>
-     <y>275</y>
-     <width>200</width>
-     <height>100</height>
+     <x>240</x>
+     <y>130</y>
+     <width>151</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">

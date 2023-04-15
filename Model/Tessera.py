@@ -8,14 +8,8 @@ class Tessera:
     def getCodice(self):
         return self.codice
 
-    def getNome(self):
-        return self.nome
-
-    def getCognome(self):
-        return self.cognome
-
-    def getDataNascita(self):
-        return self.dataNascita
+    def getDataInizio(self):
+        return self.data_inizio
 
     def getPunti(self):
         return self.punti

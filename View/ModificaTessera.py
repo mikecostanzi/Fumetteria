@@ -12,7 +12,8 @@ class ModificaTessera(QWidget):
         self.btn_conferma.clicked.connect(self.confermaPunti)
 
     def confermaPunti(self):
-        punti = int(self.linePunti.text())
+        punti = int(self.line_punti.text())
         modifica = GestoreTessere()
         modifica.modifica_punti(self.codice, punti)
+        self.close()
         print('Premuto conferma')

@@ -19,13 +19,14 @@ class InserimentoCliente(QWidget):
         indirizzo = self.line_indirizzo.text()
         telefono = self.line_telefono.text()
         email = self.line_email.text()
-        codice = self.line_codice.text()
-        data = (id,nome,cognome,indirizzo,telefono,email,codice)
+
+        data = (id,nome,cognome,indirizzo,telefono,email,None)
         print(data)
         cliente = GestoreClienti()
         if  not id:
             QMessageBox.critical(self,'Errore','Inserisci i dati necessari')
         else:
-            cliente.inserisci_cliente(id,nome,cognome,indirizzo,telefono,email,codice)
+            cliente.inserisci_cliente(id,nome,cognome,indirizzo,telefono,email,None)
+            self.close()
             print('Cliente inserito correttamente')
 
