@@ -26,7 +26,7 @@
     <string>Nuovo acquisto</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_ricerca">
    <property name="geometry">
     <rect>
      <x>100</x>
