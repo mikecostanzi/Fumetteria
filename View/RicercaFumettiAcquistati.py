@@ -41,6 +41,7 @@ class RicercaFumettiAcquistati(QWidget):
         print(barcode)
         gestore_acquisti = GestoreAcquisti()
         gestore_acquisti.inserisci_fumetti_acquistati(self.codice,barcode)
+        print(f'inserimento di {barcode} fatto')
     def go_completa_acquisto(self):
         gestore_acquisti = GestoreAcquisti()
         gestore_acquisti.set_importo(self.codice)

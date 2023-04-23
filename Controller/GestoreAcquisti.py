@@ -81,3 +81,28 @@ class GestoreAcquisti:
             data_punti = (self.punti,codice)
             cursor.execute(query_punti,data_punti)
             self.db.commit()
+    def ricerca_acquisto(self,codice):
+        with self.db.cursor() as cursor:
+            query = '''
+                select *
+                from Acquisto as a
+                where a.codice = %s;
+            '''
+            cursor.execute(query,codice)
+            self.acquisto = cursor.fetchall()
+            if self.acquisto:
+                return self.acquisto
+
+    def ricerca_fumetti_acquistati(self,codice):
+        with self.db.cursor() as cursor:
+            query = '''
+                select f.barcode,f.titolo,f.categoria,f.distributore,f.editore,f.prezzo
+                from Acquisto as a join FumettiAcquistati as fa on a.codice = fa.codice
+                join Fumetto as f on f.barcode = fa.barcode
+                where a.codice = %s;
+            '''
+            cursor.execute(query,codice)
+            self.fumetto_acquistato = cursor.fetchall()
+            print(self.fumetto_acquistato)
+            if self.fumetto_acquistato:
+                return self.fumetto_acquistato
