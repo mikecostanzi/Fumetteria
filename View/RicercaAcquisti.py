@@ -3,6 +3,7 @@ from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtWidgets import QWidget, QMessageBox
 
 from Controller.GestoreAcquisti import GestoreAcquisti
+from View.VistaAcquisto import VistaAcquisto
 
 
 class RicercaAcquisti(QWidget):
@@ -10,12 +11,12 @@ class RicercaAcquisti(QWidget):
         super(RicercaAcquisti,self).__init__()
         uic.loadUi('../ui/ricerca-acquisti.ui',self)
         self.lista = []
-        self.btn_ricerca.clicked.connect()
-        self.btn_apri.clicked.connect()
+        self.btn_cerca.clicked.connect(self.inserimento_codice)
+        self.btn_apri.clicked.connect(self.apri_acquisto)
     def inserimento_codice(self):
         try:
             gestore_acquisti = GestoreAcquisti()
-            acquisto = gestore_acquisti.ricerca_acquisto(self.line_codice.text)
+            acquisto = gestore_acquisti.ricerca_acquisto(self.line_codice.text())
             lista_model = QStandardItemModel(self.lista_acquisti)
             for elemento in acquisto:
                 item = QStandardItem()
@@ -32,4 +33,13 @@ class RicercaAcquisti(QWidget):
             QMessageBox.critical(self,'Errore','Acquisto inesistente')
 
     def apri_acquisto(self):
-        pass
+        selected = self.lista_acquisti.selectedIndexes()[0].data()
+        codice = int(selected.split("\n")[0].strip().split(":")[1])
+        print(codice)
+        gestore_acquisti = GestoreAcquisti()
+        acquisto_ricercato = gestore_acquisti.ricerca_acquisto(codice)
+        print('acquisto ricercato: ' + str(acquisto_ricercato))
+        self.vista_acquisto = VistaAcquisto(acquisto_ricercato)
+        self.vista_acquisto.show()
+
+

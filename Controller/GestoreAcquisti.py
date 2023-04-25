@@ -106,3 +106,32 @@ class GestoreAcquisti:
             print(self.fumetto_acquistato)
             if self.fumetto_acquistato:
                 return self.fumetto_acquistato
+    def modfica_data(self,codice,data_acquisto):
+        with self.db.cursor() as cursor:
+            query = '''
+                update Acquisto
+                set data_acquisto = %s
+                where codice = %s
+            '''
+            data = (data_acquisto,codice)
+            cursor.execute(query,data)
+            self.db.commit()
+    def modfica_importo(self,codice,importo_totale):
+        with self.db.cursor() as cursor:
+            query = '''
+                update Acquisto
+                set importo_totale = %s
+                where codice = %s
+            '''
+            data = (importo_totale,codice)
+            cursor.execute(query,data)
+            self.db.commit()
+    def elimina_acquisto(self,codice):
+        with self.db.cursor() as cursor:
+            query = '''
+                delete
+                from Acquisto as a
+                where a.codice = %s
+            '''
+            cursor.execute(query,codice)
+            self.db.commit()
