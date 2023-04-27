@@ -11,6 +11,7 @@
 from PyQt6 import QtCore, QtWidgets
 from PyQt6.QtWidgets import QDialog, QMessageBox
 
+from Sistema.GestoreBackup import GestoreBackup
 #from Main.InterfacciaMain import InterfacciaMain
 from View.Main import Main
 
@@ -60,11 +61,12 @@ class Ui_Login(QDialog):
 
 if __name__ == "__main__":
     import sys
+
+
     app = QtWidgets.QApplication(sys.argv)
 
     Login = QtWidgets.QWidget()
     ui = Ui_Login()
     ui.setupUi(Login)
-
     Login.show()
     sys.exit(app.exec())

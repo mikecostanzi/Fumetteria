@@ -1,10 +1,12 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
+from Sistema.GestoreBackup import GestoreBackup
 from View.MainAcquisto import MainAcquisto
 from View.MainCliente import MainCliente
 from View.MainTessera import MainTessera
 from View.MainMagazzino import MainMagazzino
+from View.Statistiche import Statistiche
 
 
 class Main(QMainWindow):
@@ -14,6 +16,8 @@ class Main(QMainWindow):
         self.btn_acquisto.clicked.connect(self.go_acquisto)
         self.btn_cliente.clicked.connect(self.go_tessera)
         self.btn_magazzino.clicked.connect(self.go_magazzino)
+        self.btn_backup.clicked.connect(self.go_backup)
+        self.btn_statistche.clicked.connect(self.go_statistiche)
 
         self.show()
     def go_acquisto(self):
@@ -28,6 +32,12 @@ class Main(QMainWindow):
         self.main_magazzino = MainMagazzino()
         self.main_magazzino.show()
     def go_backup(self):
-        pass
+        backup = GestoreBackup()
+        backup.b_fumetti()
+        backup.b_clienti()
+        backup.b_tessere()
+        backup.b_acquisti()
+
     def go_statistiche(self):
-        pass
+        self.statitstiche = Statistiche()
+        self.statitstiche.show()
