@@ -24,16 +24,19 @@ class InserimentoTessera(QWidget):
 
 
     def inserimento(self):
-        codice = int(self.line_codice.text())
-        data_inizio = self.line_data.text()
-        punti = int(self.line_punti.text())
-        tessera = GestoreTessere()
-        cliente = GestoreClienti()
-        if not codice:
-            QMessageBox.critical(self, 'Errore', 'Inserisci i dati necessari')
-        else:
-            tessera.inserisciTessera(codice,data_inizio,punti)
-            cliente.modifica_codice(self.c.get_id(),codice)
-            self.close()
-            print('Tessera inserita correttamente')
-
+        try:
+            codice = int(self.line_codice.text())
+            data_inizio = self.line_data.text()
+            punti = int(self.line_punti.text())
+            tessera = GestoreTessere()
+            cliente = GestoreClienti()
+            if codice is None:
+                QMessageBox.critical(self, 'Errore', 'Inserisci i dati necessari')
+            else:
+                tessera.inserisciTessera(codice,data_inizio,punti)
+                cliente.modifica_codice(self.c.get_id(),codice)
+                self.close()
+                print('Tessera inserita correttamente')
+        except Exception as m:
+            QMessageBox.critical(self,'Errore','Inserisci i dati correttamente')
+            print(m)

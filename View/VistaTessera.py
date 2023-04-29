@@ -8,8 +8,6 @@ from View.ModificaTessera import ModificaTessera
 class VistaTessera(QWidget):
     def __init__(self, tessera):
         super(VistaTessera, self).__init__()
-        print('--- Inizio costruttore VistaTessera ---')
-        print(tessera)
         uic.loadUi("../ui/vistaTessera.ui", self)
 
         for dato in tessera:

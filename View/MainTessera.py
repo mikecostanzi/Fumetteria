@@ -12,7 +12,6 @@ class MainTessera(QWidget):
         uic.loadUi('../ui/MainTessera.ui', self)
         self.btn_inserisci.clicked.connect(self.go_inserisci)
         self.btn_ricerca.clicked.connect(self.go_ricerca)
-        self.show()
 
     def go_inserisci(self):
         self.inserimento_tessera = RicercaClienteTessera()

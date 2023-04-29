@@ -11,15 +11,13 @@ class RicercaTessera(QWidget):
     def __init__(self):
         super(RicercaTessera, self).__init__()
         uic.loadUi('../ui/ricercaTessera.ui', self)
-        self.lista = []
+        self.gestore_tessere = GestoreTessere()
         self.btn_ricerca.clicked.connect(self.inserimento_codice)
         self.btn_apri.clicked.connect(self.apri_tessera)
 
     def inserimento_codice(self):
         try:
-            gestore_tessere = GestoreTessere()
-            tessera = gestore_tessere.ricercaTessera(self.line_barra.text())
-
+            tessera = self.gestore_tessere.ricercaTessera(self.line_barra.text())
             lista_model = QStandardItemModel(self.listaTessere)
 
             for elemento in tessera:
@@ -41,8 +39,7 @@ class RicercaTessera(QWidget):
             selected = self.listaTessere.selectedIndexes()[0].data()
             codice = selected.split('-')[0].strip().split(':')[1]
             print('id selezionato è: '+codice)
-            gestore = GestoreTessere()
-            tessera_ricercata = gestore.ricercaTessera(codice)
+            tessera_ricercata = self.gestore_tessere.ricercaTessera(codice)
             self.go_vista_tessera = VistaTessera(tessera_ricercata)
             self.go_vista_tessera.show()
         except Exception as m:

@@ -9,10 +9,7 @@ from View.ModificaFumetto import ModificaFumetto
 class VistaFumetto(QWidget):
     def __init__(self,fumetto):
         super(VistaFumetto,self).__init__()
-        print('--- Inizio costruttore VistaFumetto ---')
-        print(fumetto)
         uic.loadUi("../ui/vista-fumetto.ui",self)
-
         for dato in fumetto:
             f = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7],dato[8])
             self.fumetto_da_eliminare = Fumetto(dato[0],dato[1],dato[2],dato[3],dato[4],dato[5],dato[6],dato[7],dato[8])
@@ -29,8 +26,6 @@ class VistaFumetto(QWidget):
         self.setWindowTitle(f'Fumetto: {f.get_barcode()}')
         self.btn_modifica.clicked.connect(self.go_modifica)
         self.btn_elimina.clicked.connect(self.go_eliminazione)
-
-
 
 
     def go_eliminazione(self):

@@ -10,14 +10,12 @@ class RicercaClienteTessera(QWidget):
     def __init__(self):
         super(RicercaClienteTessera,self).__init__()
         uic.loadUi('../ui/ricerca-cliente-tessera.ui',self)
-        self.lista = []
+        self.gestore_clienti = GestoreClienti()
         self.btn_cerca.clicked.connect(self.inserimento_nome)
         self.btn_apri.clicked.connect(self.apri_cliente)
     def inserimento_nome(self):
         try:
-            gestore_clienti = GestoreClienti()
-            cliente = gestore_clienti.ricerca_cliente_codice_null(self.line_barra.text())
-
+            cliente = self.gestore_clienti.ricerca_cliente_codice_null(self.line_barra.text())
             lista_model = QStandardItemModel(self.lista_clienti)
 
             for elemento in cliente:
@@ -39,10 +37,7 @@ class RicercaClienteTessera(QWidget):
             selected = self.lista_clienti.selectedIndexes()[0].data()
             id = (selected.split('-')[0].strip().split(':')[1])
             print('id selezionato è: '+id)
-            gestore = GestoreClienti()
-            cliente_ricercato = gestore.ricerca_cliente(id)
-            print(cliente_ricercato)
-
+            cliente_ricercato = self.gestore_clienti.ricerca_cliente(id)
             self.go_inserimento = InserimentoTessera(cliente_ricercato)
             self.go_inserimento.show()
             self.close()

@@ -16,7 +16,7 @@ class InserimentoCodiceAcquisto(QWidget):
             codice = int(self.line_codice.text())
             data = self.line_data.text()
             gestore_acquisto = GestoreAcquisti()
-            if not codice:
+            if codice is None:
                 QMessageBox.critical(self,'Errore','Inserisci i dati necessari')
             else:
                 gestore_acquisto.nuovo_acquisto(codice,data)
@@ -24,4 +24,5 @@ class InserimentoCodiceAcquisto(QWidget):
                 self.go_ricerca.show()
                 self.close()
         except Exception as m:
+            QMessageBox.critical(self,'Errore','Inserisci i dati correttamente')
             print(m)

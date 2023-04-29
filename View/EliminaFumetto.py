@@ -12,7 +12,7 @@ class EliminaFumetto(QWidget):
         self.btn_conferma.clicked.connect(self.elimina)
         self.btn_annulla.clicked.connect(self.close)
     def elimina(self):
-        fumetto_eliminare = GestoreFumetti()
-        fumetto_eliminare.elimina_fumetto(self.barcode)
+        gestore_fumetti = GestoreFumetti()
+        gestore_fumetti.elimina_fumetto(self.barcode)
         self.close()
 

@@ -38,53 +38,34 @@ class GestoreTessere():
             print(m)
 
     def ricercaTessera(self, codice):
-        print('---Inizio ricerca su database---')
-        try:
-            with self.db.cursor() as cursor:
-                query = """
+        with self.db.cursor() as cursor:
+            query = """
                     select *
                     from Tessera as t
                     where t.codice = %s
-                """
-                cursor.execute(query, codice)
-                self.tessera = cursor.fetchall()
-                if self.tessera:
-                    return self.tessera
-
-        except Exception as m:
-            print("Query ricerca non andata a buon fine")
-            print(m)
-
+            """
+            cursor.execute(query, codice)
+            self.tessera = cursor.fetchall()
+            if self.tessera:
+                return self.tessera
     def eliminaFumetto(self, codice):
-        print('--- Inizio eliminazione su database ---')
-        try:
-            with self.db.cursor() as cursor:
-                query = '''
-                                delete 
-                                from Tessera as t
-                                where t.codice = %s
-                        '''
-                data = codice
-                cursor.execute(query, data)
-                self.db.commit()
-                print('--- Fine eliminazione su database ---')
-        except Exception as m:
-            print("Query ricerca non andato a buon fine")
-            print(m)
+        with self.db.cursor() as cursor:
+            query = '''
+                   delete 
+                   from Tessera as t
+                   where t.codice = %s
+            '''
+            data = codice
+            cursor.execute(query, data)
+            self.db.commit()
 
     def modifica_punti(self, codice, punti):
-        print('--- Inizio modifica punti ---')
-        try:
-            with self.db.cursor() as cursor:
-                query = '''
+        with self.db.cursor() as cursor:
+            query = '''
                         update Tessera
                         set punti = %s
                         where codice = %s
-                '''
-                data = (punti, codice)
-                cursor.execute(query,(data))
-                self.db.commit()
-            print('Tessera modificata')
-        except pymysql.err.ProgrammingError as m:
-            print('Query modifica punti non andata a buon fine')
-            print(m)
+            '''
+            data = (punti, codice)
+            cursor.execute(query,(data))
+            self.db.commit()

@@ -5,11 +5,6 @@ from View.InserimentoCliente import InserimentoCliente
 from View.MainTessera import MainTessera
 from View.RicercaClienti import RicercaClienti
 
-
-class RicercaCliente:
-    pass
-
-
 class MainCliente(QWidget):
     def __init__(self):
         super(MainCliente,self).__init__()

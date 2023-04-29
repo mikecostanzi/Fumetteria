@@ -10,7 +10,6 @@ class RicercaAcquisti(QWidget):
     def __init__(self):
         super(RicercaAcquisti,self).__init__()
         uic.loadUi('../ui/ricerca-acquisti.ui',self)
-        self.lista = []
         self.btn_cerca.clicked.connect(self.inserimento_codice)
         self.btn_apri.clicked.connect(self.apri_acquisto)
     def inserimento_codice(self):

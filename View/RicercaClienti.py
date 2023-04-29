@@ -11,14 +11,12 @@ class RicercaClienti(QWidget):
     def __init__(self):
         super(RicercaClienti,self).__init__()
         uic.loadUi('../ui/ricerca-clienti.ui',self)
-        self.lista = []
+        self.gestore_clienti = GestoreClienti()
         self.btn_cerca.clicked.connect(self.inserimento_codice)
         self.btn_apri.clicked.connect(self.apri_cliente)
     def inserimento_codice(self):
         try:
-            gestore_clienti = GestoreClienti()
-            cliente = gestore_clienti.ricerca_cliente(self.line_barra.text())
-
+            cliente = self.gestore_clienti.ricerca_cliente(self.line_barra.text())
             lista_model = QStandardItemModel(self.lista_clienti)
 
             for elemento in cliente:
@@ -40,8 +38,7 @@ class RicercaClienti(QWidget):
             selected = self.lista_clienti.selectedIndexes()[0].data()
             id = (selected.split('-')[0].strip().split(':')[1])
             print('id selezionato è: '+id)
-            gestore = GestoreClienti()
-            cliente_ricercato = gestore.ricerca_cliente(id)
+            cliente_ricercato = self.gestore_clienti.ricerca_cliente(id)
             self.go_vista_cliente = VistaCliente(cliente_ricercato)
             self.go_vista_cliente.show()
         except Exception as m:

@@ -17,7 +17,7 @@ class GestoreClienti():
 
     def __init__(self):
         super(GestoreClienti).__init__()
-        self.lista = []
+
         try:
             self.db = connection()
             self.cur = self.db.cursor()
@@ -26,50 +26,41 @@ class GestoreClienti():
             print('Database non connesso' + m)
 
     def inserisci_cliente(self,id,nome,cognome,indirizzo,telefono,email,codice):
-        try:
-            with self.db.cursor() as cursor:
-                if codice == '':
-                    codice = None
+        with self.db.cursor() as cursor:
+            if codice == '':
+                codice = None
 
-                query = '''
+            query = '''
                     INSERT INTO Cliente(id,nome,cognome,indirizzo,telefono,email,codice)
                     VALUES (%s,%s,%s,%s,%s,%s,%s)
-                '''
-                data = (id,nome,cognome,indirizzo,telefono,email,codice)
-                cursor.execute(query,data)
-                self.db.commit()
-        except Exception as m:
-            print('Query non andata a buon fine ' + m)
+            '''
+            data = (id,nome,cognome,indirizzo,telefono,email,codice)
+            cursor.execute(query,data)
+            self.db.commit()
     def ricerca_cliente(self,id):
-        try:
-            with self.db.cursor() as cursor:
-                query = '''
+        with self.db.cursor() as cursor:
+            query = '''
                     select *
                     from Cliente as c
                     where c.id = %s
-                '''
-                cursor.execute(query,id)
-                self.cliente = cursor.fetchall()
-                print(self.cliente)
-                if self.cliente:
-                    return self.cliente
-        except Exception as m:
-            print('Query non andata a buon fine' + m)
+            '''
+            cursor.execute(query,id)
+            self.cliente = cursor.fetchall()
+            if self.cliente:
+                return self.cliente
+
     def ricerca_cliente_codice_null(self,id):
-        try:
-            with self.db.cursor() as cursor:
-                query = '''
+        with self.db.cursor() as cursor:
+            query = '''
                     select *
                     from Cliente as c
                     where c.nome = %s and c.codice is NULL
-                '''
-                cursor.execute(query,id)
-                self.cliente = cursor.fetchall()
-                print(self.cliente)
-                if self.cliente:
-                    return self.cliente
-        except Exception as m:
-            print('Query non andata a buon fine' + m)
+            '''
+            cursor.execute(query,id)
+            self.cliente = cursor.fetchall()
+            if self.cliente:
+                return self.cliente
+
     def elimina_cliente(self,id):
         with self.db.cursor() as cursor:
             query = '''

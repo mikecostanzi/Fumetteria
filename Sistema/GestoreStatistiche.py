@@ -3,8 +3,6 @@ from Database.Connection import connection
 class GestoreStatistiche:
     def __init__(self):
         self.db = connection()
-        print(f'Il numero di tesserati totali è: {self.prima_statistica}\n')
-        print()
     def prima_statistica(self):
         with self.db.cursor() as cursor:
             query = '''
