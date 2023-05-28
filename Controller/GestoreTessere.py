@@ -48,7 +48,7 @@ class GestoreTessere():
             self.tessera = cursor.fetchall()
             if self.tessera:
                 return self.tessera
-    def eliminaFumetto(self, codice):
+    def eliminaTessera(self, codice):
         with self.db.cursor() as cursor:
             query = '''
                    delete 
