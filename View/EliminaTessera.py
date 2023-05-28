@@ -13,5 +13,5 @@ class EliminaTessera(QWidget):
 
     def elimina(self):
         tessera_eliminare = GestoreTessere()
-        tessera_eliminare.eliminaFumetto(self.codice)
+        tessera_eliminare.eliminaTessera(self.codice)
         self.close()
