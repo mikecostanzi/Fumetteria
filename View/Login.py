@@ -11,7 +11,7 @@
 from PyQt6 import QtCore, QtWidgets
 from PyQt6.QtWidgets import QDialog, QMessageBox
 
-from Sistema.GestoreBackup import GestoreBackup
+from Sistema.Test import Test
 #from Main.InterfacciaMain import InterfacciaMain
 from View.Main import Main
 
@@ -64,7 +64,8 @@ if __name__ == "__main__":
 
 
     app = QtWidgets.QApplication(sys.argv)
-
+    test = Test()
+    test.controllo_fumetto()
     Login = QtWidgets.QWidget()
     ui = Ui_Login()
     ui.setupUi(Login)

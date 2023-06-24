@@ -50,13 +50,19 @@ class GestoreTessere():
                 return self.tessera
     def eliminaTessera(self, codice):
         with self.db.cursor() as cursor:
-            query = '''
+            query1 = '''
+                            update Cliente
+                            set codice = NULL
+                            where codice = %s
+                        '''
+            cursor.execute(query1,codice)
+            query2 = '''
                    delete 
                    from Tessera as t
                    where t.codice = %s
             '''
             data = codice
-            cursor.execute(query, data)
+            cursor.execute(query2, data)
             self.db.commit()
 
     def modifica_punti(self, codice, punti):
